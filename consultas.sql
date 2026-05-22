@@ -1,5 +1,5 @@
 -- ---------------------------------------------------------------------
--- 1) GROUP BY / HAVING
+-- 1) GROUP BY / HAVING - SELECIONA O NOME DO TIME E O NÚMERO DE CARTÕES RECEBIDOS PELOS SEUS JOGADORES, MOSTRANDO APENAS OS TIMES COM MAIS DE 1 CARTÃO
 -- ---------------------------------------------------------------------
 SELECT  t.Nome              AS time_nome,
         COUNT(r.CPF)        AS total_cartoes
@@ -12,7 +12,7 @@ ORDER BY total_cartoes DESC;
 
 
 -- ---------------------------------------------------------------------
--- 2) JUNÇÃO INTERNA (INNER JOIN)
+-- 2) JUNÇÃO INTERNA (INNER JOIN) - LISTA OS DETALHES DAS PARTIDAS (MANDANTE, VISITANTE, PLACAR E DATA) JUNTO COM O NOME DO CAMPEONATO E A RODADA
 -- ---------------------------------------------------------------------
 SELECT  p.ID                             AS partida_id,
         tm.Nome                          AS mandante,
@@ -30,7 +30,7 @@ ORDER BY p.Data_Jogo;
 
 
 -- ---------------------------------------------------------------------
--- 3) JUNÇÃO EXTERNA (LEFT OUTER JOIN)
+-- 3) JUNÇÃO EXTERNA (LEFT OUTER JOIN) - LISTA TODOS OS JOGADORES E SEUS TIMES, MOSTRANDO OS DETALHES DOS CARTÕES RECEBIDOS (INCLUINDO JOGADORES QUE NÃO RECEBERAM NENHUM CARTÃO)
 -- ---------------------------------------------------------------------
 SELECT  m.Nome              AS jogador,
         t.Nome              AS time_nome,
@@ -46,7 +46,7 @@ ORDER BY m.Nome;
 
 
 -- ---------------------------------------------------------------------
--- 4) SEMI-JUNÇÃO (EXISTS)
+-- 4) SEMI-JUNÇÃO (EXISTS) - RETORNA OS DADOS DOS CAMPEONATOS QUE POSSUEM PELO MENOS UM PATROCINADOR REGISTRADO
 -- ---------------------------------------------------------------------
 SELECT  c.COD, c.Nome, c.Tipo, c.Data_Inicio, c.Data_Fim
 FROM    Campeonato c
@@ -58,7 +58,7 @@ WHERE   EXISTS (
 
 
 -- ---------------------------------------------------------------------
--- 5) ANTI-JUNÇÃO (NOT EXISTS)
+-- 5) ANTI-JUNÇÃO (NOT EXISTS) - LISTA OS JOGADORES (NOME, TIME E CAMISA) QUE NUNCA RECEBERAM NENHUM CARTÃO
 -- ---------------------------------------------------------------------
 SELECT  m.CPF, m.Nome, t.Nome AS time_nome, j.Numero_Camisa
 FROM    Jogador j
@@ -73,7 +73,7 @@ ORDER BY m.Nome;
 
 
 -- ---------------------------------------------------------------------
--- 6) SUBCONSULTA ESCALAR
+-- 6) SUBCONSULTA ESCALAR - RETORNA AS PARTIDAS QUE TIVERAM UM PÚBLICO MAIOR QUE A MÉDIA GERAL DE PÚBLICO DE TODOS OS JOGOS
 -- ---------------------------------------------------------------------
 SELECT  p.ID,
         tm.Nome AS mandante,
@@ -88,7 +88,7 @@ ORDER BY p.Publico DESC;
 
 
 -- ---------------------------------------------------------------------
--- 7) SUBCONSULTA DE LINHA 
+-- 7) SUBCONSULTA DE LINHA - SELECIONA AS PARTIDAS QUE TERMINARAM COM EXATAMENTE O MESMO PLACAR DO JOGO QUE TEVE O MAIOR PÚBLICO REGISTRADO
 -- ---------------------------------------------------------------------
 SELECT  p.ID, p.Data_Jogo, p.Placar_M, p.Placar_V, p.Publico,
         tm.Nome AS mandante, tv.Nome AS visitante
@@ -102,7 +102,7 @@ WHERE   (p.Placar_M, p.Placar_V) IN (
         );
 
 -- ---------------------------------------------------------------------
--- 8) SUBCONSULTA DE TABELA
+-- 8) SUBCONSULTA DE TABELA - LISTA OS TIMES QUE POSSUEM JOGADORES PUNIDOS COM CARTÕES QUE RESULTARAM EM PELO MENOS 1 JOGO DE SUSPENSÃO
 -- ---------------------------------------------------------------------
 SELECT  t.COD, t.Nome, t.Cidade
 FROM    Equipe t
@@ -115,7 +115,7 @@ WHERE   t.COD IN (
         );
 
 -- ---------------------------------------------------------------------
--- 9) OPERAÇÃO DE CONJUNTO (UNION)
+-- 9) OPERAÇÃO DE CONJUNTO (UNION) - CRIA UMA LISTA ÚNICA JUNTANDO OS NOMES DE TÉCNICOS E JOGADORES E IDENTIFICANDO A QUAL FUNÇÃO CADA UM PERTENCE
 -- ---------------------------------------------------------------------
 SELECT  m.CPF, m.Nome, 'Tecnico' AS funcao
 FROM    Membro_da_Equipe m
