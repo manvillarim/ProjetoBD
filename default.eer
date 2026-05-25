@@ -75,7 +75,7 @@
     <links xmi:type="eer:AttributeLink" xmi:id="_BmkEEEiCEfGIj_afpoVO2A" source="_n14UQEiBEfGIj_afpoVO2A" target="_-srF0EiBEfGIj_afpoVO2A"/>
     <links xmi:type="eer:AttributeLink" xmi:id="_GxB90EiCEfGIj_afpoVO2A" source="_pT5xcEiBEfGIj_afpoVO2A" target="_CW9mQEiCEfGIj_afpoVO2A"/>
     <links xmi:type="eer:RelationshipLink" xmi:id="_UGQnoEiEEfGIj_afpoVO2A" source="_pT5xcEiBEfGIj_afpoVO2A" target="_QgLRwEiEEfGIj_afpoVO2A"/>
-    <links xmi:type="eer:RelationshipLink" xmi:id="_U-hsYEiEEfGIj_afpoVO2A" source="_u6nt4Eh3EfGZu_Ncc-EaKA" target="_QgLRwEiEEfGIj_afpoVO2A" participation="TOTAL"/>
+    <links xmi:type="eer:RelationshipLink" xmi:id="_U-hsYEiEEfGIj_afpoVO2A" source="_u6nt4Eh3EfGZu_Ncc-EaKA" target="_QgLRwEiEEfGIj_afpoVO2A"/>
     <links xmi:type="eer:RelationshipLink" xmi:id="_liqvIEssEfGgR5CswWAsdA" source="_n14UQEiBEfGIj_afpoVO2A" cardinality="MANY"/>
     <links xmi:type="eer:RelationshipLink" xmi:id="_XqBSYEsuEfGgR5CswWAsdA" source="_woqMIEssEfGgR5CswWAsdA" target="_VauJQEsuEfGgR5CswWAsdA" participation="TOTAL" cardinality="MANY" role="" isIdentifier="true"/>
     <links xmi:type="eer:RelationshipLink" xmi:id="_Z344IEsuEfGgR5CswWAsdA" source="_QF_e4Eh-EfGIj_afpoVO2A" target="_VauJQEsuEfGgR5CswWAsdA"/>
